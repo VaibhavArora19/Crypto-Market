@@ -1,0 +1,152 @@
+body {
+  box-sizing: border-box;
+  background-color: #171717;
+}
+
+.background{
+  background-image: url("./background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:38rem;
+  box-shadow: 0px 2px 7px 1px #0F0E0E;
+} 
+
+.navbar-brand {
+  font-size:1.3rem;
+}
+
+.center-data {
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 45px;
+  color: white;
+  margin-top:7%;
+}
+
+.yellow {
+  color: #FFD93D;
+}
+
+.container {
+  position: relative;
+  height: 14vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.word {
+  font-family: 'Noto Sans', sans-serif;
+  max-width: 100%;
+  letter-spacing: 5px;
+  font-size: 50px;
+  position: absolute;
+  animation: word 15s infinite ease-in-out;
+}
+
+.word:nth-child(1) {
+  animation-delay: -15s;
+}
+
+.word:nth-child(2) {
+  animation-delay: -11s;
+}
+
+.word:nth-child(3) {
+  animation-delay: -7s;
+}
+
+@keyframes word {
+  0%, 5%, 100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  20%, 80% {
+    filter: blur(35px);
+    opacity: 0;
+  }
+}
+
+.main-info {
+  color: white;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  font-size:20px;
+  margin-top: 4%;
+}
+
+.buttons {
+  margin-top:18px;
+  margin-left:8px;
+}
+.ml3 {
+  font-weight: 900;
+  font-size: 3.5em;
+  margin-bottom: 5%;
+  text-align: center;
+  margin-top:8%;
+  color: whitesmoke;
+}
+.carousel {
+  height:42rem;
+  padding-top: 5%;
+  margin-bottom: 5%;
+}
+.carousel-item img {
+  height:100px;
+}
+
+.carousel-item h2 {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom:2%;
+  margin-top: 2%;
+  font-family: 'Verdana', sans-serif;
+  color:whitesmoke;
+}
+.carousel-control-prev{
+  color: black
+}
+
+#about-us {
+  height: 33rem;
+  background-color: white;
+}
+.about {
+  text-align: center;
+  font-size: 3rem;
+  padding-top: 5%;
+  color: black;
+  font-family: 'Noto Sans', sans-serif;
+}
+.developers {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 3%;
+  color: black;
+  font-family: 'Noto Sans', sans-serif;
+}
+.information {
+  margin: auto;
+  text-align: center;
+  margin-top: 5%;
+  font-size: 1.5rem;
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: 'Verdana', sans-serif;
+}
+@media (max-width:720px) {
+  .background {
+    height: 47rem;
+  }
+  .buttons {
+    margin-top: 35px; 
+  }
+  .carousel {
+    height: 35rem;
+  }
+}
+

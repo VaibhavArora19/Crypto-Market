@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <body>
+      <br>
+      <div class="cont">
+        <div class="form sign-in">
+          <h2>Welcome back,</h2>
+          <form action="/login" method="post">
+            <label>
+              <span>Email</span>
+              <input type="email" name = "email"/>
+            </label>
+            <label>
+        <span>Password</span>
+        <input type="password" name = "password"/>
+      </label>
+      <button type="submit" class="submit">Sign In</button>
+      
+      
+      <% if(error) {%>
+        <div class="container-fluid text-center">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+              <div class="new-message-box">
+                            <div class="new-message-box-danger">
+                                <div class="info-tab tip-icon-danger" title="error"><i></i></div>
+                                <div class="tip-box-danger">
+                                    <!--<p><strong>Tip:</strong> If you want to enable the fading transition effect while closing the alert boxes, apply the classes <code>.fade</code> and <code>.in</code> to them along with the contextual class.</p>-->
+                                    <p>E-mail or Password Invalid!! Please Try Again</p>
+                                </div>
+                            </div>
+                        </div>
+        </div>
+        </div>
+        </div>
+        <% } %>
+        <!-- <button type="button" class="fb-btn">Connect with <span>facebook</span></button> -->
+    </form>
+  </div>
+    <div class="sub-cont">
+      <div class="img">
+        <div class="img__text m--up">
+          <h2>New here?</h2>
+          <p>Sign up and discover great amount of new opportunities!</p>
+        </div>
+        <div class="img__text m--in">
+          <h2>One of us?</h2>
+          <p>If you already have an account, just sign in. We've missed you!</p>
+        </div>
+        <div class="img__btn">
+          <span class="m--up">Sign Up</span>
+          <span class="m--in">Sign In</span>
+        </div>
+      </div>
+      <div class="form sign-up">
+        <h2>Time to feel like home,</h2>
+        <form action="/signup" method="post">
+          <label>
+          <span>Name</span>
+          <input type="text" name = "name" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name = "email" required/>
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" name = "password" required/>
+        </label>
+        <button type="submit" class="submit">Sign Up</button>
+          <!-- <button type="button" class="fb-btn">Join with <span>facebook</span></button> -->
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.querySelector('.img__btn').addEventListener('click', function() {
+      document.querySelector('.cont').classList.toggle('s--signup');
+    });
+    </script>
+</body>
+</html>
