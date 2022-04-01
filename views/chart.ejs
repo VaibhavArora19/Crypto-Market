@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="chart.css">
+    <title>Chart Data</title>
+</head>
+<body>
+  <h1 id = "coin"><%=coin%></h1>
+    <div>
+        <canvas id = "myChart" style="position:relative; height:50vh; width:80vw"></canvas>
+    </div>
+    <div class = "row">
+      <h3 id = "marketCap" class = "col"></h3>
+      <h3 id = "rank" class = "col" style = "color: green;"></h3>
+    </div>
+      
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const coinName = document.getElementById('coin').innerHTML;
+      fetch('http://localhost:3000/chart/'+ coinName)
+      .then(res => res.json())
+      .then(resData => {
+        document.getElementById('marketCap').innerHTML = "Market-Cap: $" + resData.coin[0].marketCap;
+        document.getElementById('rank').innerHTML = "Rank: " + resData.coin[0].rank;
+        const window = document.getElementById('myChart');
+        if(window.innerHeight<= 1000) {
+          window.style.height = "70vh";
+        }
+        else {
+          window.style.height = "50vh"
+        }
+        const labels = [
+          resData.getHours[6],
+          resData.getHours[5],
+          resData.getHours[4],
+          resData.getHours[3],
+          resData.getHours[2],
+          resData.getHours[1],
+          resData.getHours[0],
+        ];
+      
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: '7 Hour Change ',
+            backgroundColor: 'rgb(255, 99, 0)',
+            borderColor: 'rgb(255, 99, 55)',
+            data: [...resData.coin[0].sparkline],
+          }]
+        };
+      
+        const config = {
+          type: 'line',
+          data: data,
+          options: {}
+        };
+        const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+      })
+      .catch(err => console.log(err));
+      
+      </script>
+      
+</body>
+</html>

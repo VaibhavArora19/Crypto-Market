@@ -1,0 +1,14 @@
+#coin {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 3%;
+    font-family: 'Heebo', sans-serif;
+}
+
+.row {
+    padding-top: 3%;
+}
+.col {
+    text-align: center;
+}
+

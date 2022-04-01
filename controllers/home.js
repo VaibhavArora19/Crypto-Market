@@ -1,10 +1,11 @@
+const { name } = require('ejs');
 const https = require('https');
 const nodemailer = require('nodemailer');
 const sendgridTransport = require('nodemailer-sendgrid-transport');
 
 const { getMaxListeners } = require('process');
 
-const URI = 'https://api.coinranking.com/v2/coins/?x-access-token=' + process.env.ACCESS_TOKEN;
+const URI = 'https://api.coinranking.com/v2/coins/?timePeriod=24h&x-access-token=' + process.env.ACCESS_TOKEN;
 
 exports.getHome = (req, res, next) => {
     let completeData;
@@ -52,5 +53,73 @@ exports.postContact = (req, res, next) => {
         text: `Message is ${message} and email is ${email} and name is ${name}`
     })
     res.redirect('/');
+
+}
+
+exports.getPrices = (req, res, next) => {
+    let completeData;
+    https.get(URI, (response) =>
+    {
+         const apiData = [];
+         response.on('data', (chunk) =>
+         {
+             apiData.push(chunk);
+        });
+        response.on('end', () =>
+        {
+             completeData = JSON.parse(Buffer.concat(apiData));
+             res.render('prices',{coins: completeData.data.coins});
+     });
+   
+   })
+   
+}
+
+exports.getGraph = (req, res, next) => {
+    const coinName = req.query.coin;
+    res.render('chart', {coin:coinName});
+}
+
+exports.getChart =(req, res, next) => {
+    const timeArray= [];
+    let time = new Date().getHours();
+    
+    for(let i = 0; i<7; i++)
+    {
+        if(time == 12) {
+            timeArray.push(12 + ':00 PM')
+        }
+         else if(time > 12 || time <0) {
+            timeArray.push(Math.abs(time%12) + ':00 PM');
+            time = time
+        }
+        else if (time < 12 && time > 0){
+            timeArray.push(Math.abs(time)  + ':00 AM');
+        }
+        else if(time == 24 || time == 0) {
+            timeArray.push(12 + ':00 AM');
+        }
+        time = time -4;
+       
+    } 
+    const coinName = req.params.coinName;
+    let data;
+    let completeData;
+    https.get(URI, (response) =>
+    {
+         const apiData = [];
+         response.on('data', (chunk) =>
+         {
+             apiData.push(chunk);
+        });
+        response.on('end', () =>
+        {
+             completeData = JSON.parse(Buffer.concat(apiData));
+             coinData = completeData.data.coins;
+             data = coinData.filter(coin => coin.name === coinName);
+             res.json({getHours:timeArray, coin:data});
+             
+     });
+   })
 
 }

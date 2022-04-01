@@ -1,0 +1,52 @@
+.data {
+    font-size: 20px;
+    text-align: center;
+}
+.col {
+    border-bottom-style:solid;
+    border-width: 1px;
+    padding: 0%;
+    text-align: center;
+    height: 70px;
+    margin-top: 3%;
+}
+.coin-image {
+    height: 25px;
+}
+
+body {
+    background-color: whitesmoke;
+}
+.title {
+    font-size: 56px;
+    line-height: 68px;
+    font-family: 'Heebo', sans-serif;
+    margin-top: 4%;
+    margin-left:2%;
+}
+.header {
+    font-size:16px;
+    line-height: 24px;
+    margin-top: 3%;
+}
+.coin-symbol {
+    font-family: 'Titillium Web', sans-serif;
+}
+.coin-symbol:hover {
+    border-bottom: 2px solid black;
+    transition: all 0.1s ease-in-out 0s;
+
+}
+
+.coin-change {
+    font-family: 'Titillium Web', sans-serif;
+}
+.coin-link {
+    border: none;
+    color: black;
+    outline: none;
+    text-decoration: none;
+}
+.coin-link:hover {
+    color: black;
+}
