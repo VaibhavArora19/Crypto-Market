@@ -15,6 +15,9 @@ router.get('/prices', isAuth, homeController.getPrices);
 
 router.get('/graph', isAuth, homeController.getGraph);
 
+router.get('/graphBySearch', isAuth, homeController.getGraphBySearch)
+
+router.get('/failure', isAuth, homeController.getFailure);
 router.get('/chart/:coinName',  homeController.getChart);
 
 module.exports = router;

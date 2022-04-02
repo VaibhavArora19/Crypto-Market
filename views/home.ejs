@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
 
     <!-- Emoji CSS -->
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
@@ -41,20 +42,20 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#home">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/prices">Prices</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#about-us">About Us</a>
+                <a class="nav-link" href="/contact">Contact Us</a>
               </li>
               <li class = "nav-item">
                 <a href="/logout" class = "nav-link">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" action="/graphBySearch" method = "get">
+              <input class="form-control me-2" type="text" name = "coin" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
@@ -127,10 +128,17 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+ 
   <div id = "about-us">
       <h1 class = "about">About Us</h1>
       <h1 class = "developers">Aspiring Developers</h1>
       <p class = "information">We are a group of Developers that are learning constantly and applying their learning through creating Projects. If you like Our Project, you can show us some love by clicking the Contact us button and mailing us a message saying - "Liked the project <i class="em em-heart" aria-role="presentation" aria-label="HEAVY BLACK HEART"></i> ", and this will help us in building more awesome projects.</p>
+    </div>
+    <div id = "footer">
+      <h1 class = "get-in-touch">Get In Touch</h1>
+      <a href="/contact"><i class="fa-solid fa-paper-plane fa-2x"></i></a>
+      <a href="http://www.instagram.com/vaibhavarora.19"><i class="fa-brands fa-instagram fa-2x"></i></a>
+      <a href="http://www.twitter.com/Vaibhavtwts"><i class="fa-brands fa-twitter fa-2x""></i></a>
     </div>
     </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>

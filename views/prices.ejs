@@ -27,20 +27,20 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/prices">Prices</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact Ud</a>
+                <a class="nav-link" href="/contact">Contact Us</a>
               </li>
               <li class = "nav-item">
                 <a href="/logout" class = "nav-link">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" action = "/graphBySearch" method="get">
+              <input class="form-control me-2" type="text"  name = "coin" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
@@ -61,7 +61,7 @@
           </h1>
         </div>
           <div class="col"><img class = "coin-image" src="<%=coin.iconUrl%>" alt=""></h1></div>
-          <div class="col"><h1 class = "data">$ <%=coin.price%></h1></div>
+          <div class="col"><h1 class = "data coin-price">$ <%=coin.price%></h1></div>
           <% if(coin.change >=0 ) { %>
           <div class="col"><h1 class = "data coin-change"  style="color: green;">+<%=coin.change%>%</h1></div>
           <%} else {%>

@@ -2,8 +2,10 @@ const { name } = require('ejs');
 const https = require('https');
 const nodemailer = require('nodemailer');
 const sendgridTransport = require('nodemailer-sendgrid-transport');
+const _ = require('lodash');
 
 const { getMaxListeners } = require('process');
+const { rmSync } = require('fs');
 
 const URI = 'https://api.coinranking.com/v2/coins/?timePeriod=24h&x-access-token=' + process.env.ACCESS_TOKEN;
 
@@ -19,7 +21,7 @@ exports.getHome = (req, res, next) => {
         response.on('end', () =>
         {
              completeData = JSON.parse(Buffer.concat(apiData));
-             res.render('home' ,{coins: completeData.data.coins});
+             res.render('home' ,{coins: completeData.data.coins, bestCoins: completeData.data.stats.bestCoins});
      })
    
    })
@@ -44,7 +46,7 @@ exports.postContact = (req, res, next) => {
         from: "aroravaibhav817@gmail.com",
         to: email,
         subject: "Thanks For Checking Out Our App!! ✔",
-        text: "Hello Traders, Thanks for trying out our Demo Project and reaching out to us, obviously it is a prototype but sending us a mail means a lot to us. We will send a Response to your message as soon as possible. Thanks for showing your suppoort!!!!"
+        text: "Hello Traders, Thanks for trying out our Demo Project and reaching out to us, obviously it is a prototype but sending us a mail means a lot to us. We will send a Response to your message as soon as possible. Thanks for showing your support!!!!"
     });
     const check = transporter.sendMail({
         from: "aroravaibhav817@gmail.com",
@@ -78,6 +80,11 @@ exports.getPrices = (req, res, next) => {
 exports.getGraph = (req, res, next) => {
     const coinName = req.query.coin;
     res.render('chart', {coin:coinName});
+}
+
+exports.getGraphBySearch = (req, res, next) => {
+    const coinName = _.capitalize(req.query.coin);
+    res.render('chart', {coin:coinName})
 }
 
 exports.getChart =(req, res, next) => {
@@ -122,4 +129,8 @@ exports.getChart =(req, res, next) => {
      });
    })
 
+}
+
+exports.getFailure = (req, res, next) => {
+    res.render('failure');
 }

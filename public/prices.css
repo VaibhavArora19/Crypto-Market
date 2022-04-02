@@ -50,3 +50,11 @@ body {
 .coin-link:hover {
     color: black;
 }
+@media (max-width:1000px) {
+.coin-price {
+    font-size:11px;
+}
+.coin-change {
+    font-size: 14px;
+}
+}

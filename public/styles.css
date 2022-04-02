@@ -113,7 +113,9 @@ body {
 #about-us {
   height: 33rem;
   background-color: white;
+  margin-bottom: 3%;
 }
+
 .about {
   text-align: center;
   font-size: 3rem;
@@ -138,6 +140,50 @@ body {
   padding-right: 5px;
   font-family: 'Verdana', sans-serif;
 }
+
+#footer {
+  height:150px;
+  margin-bottom: 3%;
+}
+
+.fa-instagram {
+  color: white;
+  position: relative;
+  left: 47%;
+  margin-top: 5%;
+}
+
+.fa-twitter {
+  color: white;
+  position: relative;
+  left: 52%;
+}
+
+.fa-paper-plane{
+  color: white;
+  position: relative;
+  left:42%;
+} 
+
+.fa-paper-plane:hover {
+  color: #FFD93D;
+}
+
+.fa-twitter:hover {
+  color: #22577E;
+}
+.fa-instagram:hover {
+  color: #F473B9;
+}
+
+.get-in-touch {
+  font-family: 'Tangerine', cursive;
+  font-size: 3rem;
+  text-align: center;
+  color: white;
+  margin-top: 3%;
+}
+
 @media (max-width:720px) {
   .background {
     height: 47rem;
@@ -147,6 +193,25 @@ body {
   }
   .carousel {
     height: 35rem;
+  }
+  #about-us {
+    height: 35rem;
+  }
+  
+}
+@media (max-width:1000px) {
+  #footer {
+    height:120px;
+    margin-top:3%;
+  }
+  .fa-paper-plane{
+    left:32%;
+  }
+  .fa-instagram {
+    left:37%;
+  }
+  .fa-twitter {
+    left:42%;
   }
 }
 

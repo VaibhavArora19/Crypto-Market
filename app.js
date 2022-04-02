@@ -24,7 +24,7 @@ app.use((req, res, next) => {
      next();
 })
 
-const URI = 'mongodb://localhost:27017/coinDB';
+const URI = process.env.MONGODB_URI;
 
 const store = new MongoDBStore({
      uri: URI,
