@@ -31,7 +31,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
       const coinName = document.getElementById('coin').innerHTML;
-      fetch('http://localhost:3000/chart/'+ coinName)
+      fetch('http://www.crypto-market-19.herokuapp.com/chart/'+ coinName)
       .then(res => res.json())
       .then(resData => {
         console.log(resData.coin.length);
