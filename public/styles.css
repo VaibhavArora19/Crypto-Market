@@ -146,20 +146,19 @@ body {
   margin-bottom: 3%;
 }
 
-.fa-instagram {
+.instagram {
   color: white;
   position: relative;
   left: 47%;
-  margin-top: 5%;
 }
 
-.fa-twitter {
+.twitter {
   color: white;
   position: relative;
   left: 52%;
 }
 
-.fa-paper-plane{
+.paper-plane{
   color: white;
   position: relative;
   left:42%;
@@ -182,6 +181,7 @@ body {
   text-align: center;
   color: white;
   margin-top: 3%;
+  margin-bottom: 5%;
 }
 
 @media (max-width:720px) {
@@ -204,13 +204,13 @@ body {
     height:120px;
     margin-top:3%;
   }
-  .fa-paper-plane{
+  .paper-plane{
     left:32%;
   }
-  .fa-instagram {
+  .instagram {
     left:37%;
   }
-  .fa-twitter {
+  .twitter {
     left:42%;
   }
 }
