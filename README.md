@@ -5,6 +5,9 @@ This is a project that shows the real-time data of almost 50 Crypto coins with a
 To have a local copy of the repository -
 
 `1 - Fork the repo `
+
 `2 - Clone the repo to your local system `
+
 `3 - Use npm install` to download all the dependencies
+
 `4 - Specify your MongoDB_URI`
